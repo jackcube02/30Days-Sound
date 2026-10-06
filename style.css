@@ -1,0 +1,125 @@
+@font-face {
+    font-family: "gunchul";
+    src: url("data/font/sm-gunchul.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+#main{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+p{
+    font-family: "gunchul", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#content{
+    display: grid;
+    grid-template-columns: 72px repeat(5, minmax(0, 1fr));
+    column-gap: 10px;
+}
+
+ul, li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.listName {
+    min-width: 0;
+}
+
+.listName > p{
+    font-size: 0.6rem;
+    border-bottom: 2px solid black;
+    margin-bottom: 5px;
+}
+
+/* 마지막 열을 제외한 각 열의 오른쪽 구분선 */
+#content > .listName:not(:last-child) {
+    border-right: 1px solid black;
+    padding-right: 10px;
+}
+
+.audioItem {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-bottom: 1px solid black;
+}
+
+.audioItem > p {
+    font-size: 0.6rem;
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.playButton {
+    flex: 0 0 16px;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    background: none;
+    color: black;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.playTime {
+    font-size: 0.5rem;
+    font-family: "gunchul", sans-serif;
+    flex: 0 0 56px;
+    text-align: left;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.audioItem audio {
+    display: none;
+}
+
+.audioItem, .dayItem {
+    height: 28px;
+    box-sizing: border-box;
+}
+
+.dayItem {
+    display: flex;
+    align-items: center;
+    font-size: 0.6rem;
+    border-bottom: 1px solid black;
+}
+
+
+
+
+/* Mobile*/
+@media (max-width: 768px) {
+    #content {
+        grid-template-columns: minmax(0, 1fr);
+        column-gap: 0;
+        row-gap: 24px;
+    }
+
+    #content > .listName:first-child {
+        display: none;
+    }
+
+    #content > .listName:not(:last-child) {
+        border-right: none;
+        padding-right: 0;
+    }
+}
